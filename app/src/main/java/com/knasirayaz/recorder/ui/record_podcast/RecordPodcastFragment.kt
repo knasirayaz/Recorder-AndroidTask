@@ -1,6 +1,7 @@
 package com.knasirayaz.recorder.ui.record_podcast
 
 import android.Manifest
+import android.content.pm.ActivityInfo
 import android.media.MediaPlayer
 import android.media.MediaRecorder
 import android.net.Uri
@@ -44,6 +45,7 @@ class RecordPodcastFragment :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         CoroutineScope(Dispatchers.IO).launch {
             while (isActive) {
                 if (isRecording) {

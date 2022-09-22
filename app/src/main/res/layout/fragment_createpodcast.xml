@@ -49,6 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="50dp"
+                android:layout_gravity="center_horizontal"
                 android:orientation="vertical">
 
                 <com.google.android.material.button.MaterialButton
@@ -65,6 +66,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:layout_gravity="center_horizontal"
                     android:gravity="center_horizontal"
                     android:text="@string/record" />
             </LinearLayout>
@@ -73,6 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
+                android:gravity="center_horizontal"
                 android:orientation="vertical">
 
 
@@ -92,6 +95,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:layout_gravity="center_horizontal"
                     android:gravity="center_horizontal"
                     android:text="@string/import_files" />
 

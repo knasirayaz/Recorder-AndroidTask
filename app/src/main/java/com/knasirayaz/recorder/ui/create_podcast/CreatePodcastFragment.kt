@@ -1,6 +1,8 @@
 package com.knasirayaz.recorder.ui.create_podcast
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.content.pm.ActivityInfo
 import android.media.MediaMetadataRetriever
 import android.net.Uri
 import android.os.Bundle
@@ -26,6 +28,12 @@ class CreatePodcastFragment :
 
     var mAdapter: PodcastsAdapter? = null
 
+    @SuppressLint("SourceLockedOrientationActivity")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setTitle(getString(R.string.create_podcast))
