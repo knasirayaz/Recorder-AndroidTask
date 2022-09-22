@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="@dimen/_5sdp"
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp"
+    android:id="@+id/layout"
+    android:visibility="gone"
+    tools:visibility="visible"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="@dimen/_5sdp"
+    app:layout_behavior="@string/bottom_sheet_behavior"
+    tools:context=".bottomsheet.FilePicker">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCaptureImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/picker_button_bg"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:text="@string/take_a_photo"
+        android:textColor="@color/picker_text_color" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnChooseImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/picker_button_bg"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:text="@string/choose_image_from_gallery"
+        android:textColor="@color/picker_text_color"
+        android:visibility="visible" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCaptureVideo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/picker_button_bg"
+        android:gravity="center"
+        android:text="@string/take_a_video"
+        android:textAllCaps="false"
+        android:textColor="@color/picker_text_color"
+        android:visibility="visible" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnChooseVideo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/picker_button_bg"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:text="@string/choose_video_from_gallery"
+        android:textColor="@color/picker_text_color" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnChooseDocument"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/picker_button_bg"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:text="@string/choose_document"
+        android:textColor="@color/picker_text_color" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCancel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/picker_cancel_button_bg"
+        android:gravity="center"
+        android:text="@string/cancel"
+        android:textAllCaps="true"
+        android:textColor="@color/picker_cancel_text_color" />
+</LinearLayout>

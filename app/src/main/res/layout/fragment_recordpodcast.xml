@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.knasirayaz.recorder.utils.PausableChronometer
+            android:id="@+id/chronometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/audioRecordView"
+            app:layout_constraintEnd_toEndOf="@+id/audioRecordView"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="@+id/audioRecordView"
+            android:textSize="32sp"
+            style="@style/heading_1">
+
+        </com.knasirayaz.recorder.utils.PausableChronometer>
+
+        <TextView
+            android:id="@+id/textView9"
+            style="@style/heading_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="72dp"
+            android:text="00:00"
+            android:visibility="gone"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toTopOf="@+id/audioRecordView"
+            app:layout_constraintEnd_toEndOf="@+id/audioRecordView"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="@+id/audioRecordView" />
+
+        <com.visualizer.amplitude.AudioRecordView
+            android:id="@+id/audioRecordView"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            app:chunkAlignTo="center"
+            app:chunkColor="@color/colorPurple"
+            app:chunkMaxHeight="200dp"
+            app:chunkMinHeight="2dp"
+            app:chunkRoundedCorners="true"
+            app:chunkSoftTransition="true"
+            app:chunkSpace="5dp"
+            app:chunkWidth="2dp"
+            app:direction="leftToRight"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <LinearLayout
+            android:id="@+id/ll_undo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginBottom="50dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_undo"
+                style="@style/Widget.MaterialComponents.Button.IconOnly"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="@color/colorGrey"
+                app:icon="@drawable/ic_undo"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                style="@style/sub_heading_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:gravity="center_horizontal"
+                android:text="@string/undo" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="50dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_save"
+                style="@style/Widget.MaterialComponents.Button.IconOnly"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                app:icon="@drawable/ic_save"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                style="@style/sub_heading_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:gravity="center_horizontal"
+                android:text="@string/save" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ll_save"
+            app:layout_constraintStart_toEndOf="@+id/ll_undo">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_record"
+                style="@style/Widget.MaterialComponents.Button.IconOnly"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="#E16F4D"
+                app:icon="@drawable/ic_mic"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/tv_of_btn_record"
+                style="@style/sub_heading_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:gravity="center_horizontal"
+                android:text="@string/start" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_save_info"
+            style="@style/heading_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:gravity="center"
+            android:text="@string/you_can_save_this_record_as_it_is_or_ncontinue_recording"
+            app:layout_constraintBottom_toBottomOf="@+id/chronometer"
+            app:layout_constraintEnd_toEndOf="@+id/audioRecordView"
+            app:layout_constraintStart_toStartOf="@+id/audioRecordView" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_play"
+            style="@style/Widget.MaterialComponents.Button.IconOnly"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:visibility="invisible"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/colorGrey"
+            app:icon="@drawable/ic_play"
+            app:layout_constraintBottom_toBottomOf="@+id/audioRecordView"
+            app:layout_constraintEnd_toEndOf="@+id/audioRecordView"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="@+id/audioRecordView"
+            app:layout_constraintTop_toBottomOf="@+id/chronometer"
+            app:layout_constraintVertical_bias="0.492"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_home"
+    app:startDestination="@id/createPodCastFragment">
+
+    <fragment
+        android:id="@+id/createPodCastFragment"
+        android:name="com.knasirayaz.recorder.ui.create_podcast.CreatePodcastFragment"
+        android:label="CreatePodcastFragment"
+        tools:layout="@layout/fragment_createpodcast">
+        <action
+            android:id="@+id/action_createPodCastFragment_to_recordPodcastFragment"
+            app:destination="@id/recordPodcastFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/recordPodcastFragment"
+        android:name="com.knasirayaz.recorder.ui.record_podcast.RecordPodcastFragment"
+        android:label="RecordPodcastFragment"
+        tools:layout="@layout/fragment_recordpodcast"/>
+</navigation>

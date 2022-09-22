@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Recorder-AndroidTask</string>
+    <string name="success">Success</string>
+    <string name="create_podcast">Create Podcast</string>
+    <string name="start_recording">Start Recording</string>
+    <string name="error_no_recording_found">No Recording Found!</string>
+    <string name="start">Start</string>
+    <string name="recording">Recording</string>
+    <string name="stop">Stop</string>
+    <string name="title_preview_your_audio">Preview your Audio</string>
+    <string name="continu">Continue</string>
+    <string name="save">Save</string>
+    <string name="file_name">File name</string>
+    <string name="save_your_recording">Save your recording</string>
+    <string name="you_can_save_this_record_as_it_is_or_ncontinue_recording">You can save this record as it is, or \ncontinue recording</string>
+    <string name="undo">Undo</string>
+    <string name="import_files">Import Files</string>
+    <string name="record">Record</string>
 </resources>
