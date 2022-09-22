@@ -28,7 +28,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(){
         installSplashScreen().apply {
             setKeepOnScreenCondition{
                 runBlocking {
-                    delay(1000)
+                    delay(700)
                     false
                 }
             }

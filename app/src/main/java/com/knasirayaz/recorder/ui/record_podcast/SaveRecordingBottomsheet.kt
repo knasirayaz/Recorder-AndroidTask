@@ -28,7 +28,7 @@ class SaveRecordingBottomsheet(var callback: (fileName : String) -> Unit) : Bott
                 callback.invoke(fileNameEt?.text.toString())
                 dialog.dismiss()
             }else{
-                snackbar(dialog.window?.decorView!!, "Please enter valid file name")
+                snackbar(dialog.window?.decorView!!, getString(R.string.error_invalid_filename))
             }
         }
 
