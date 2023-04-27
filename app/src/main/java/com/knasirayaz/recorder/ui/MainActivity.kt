@@ -11,6 +11,8 @@ import kotlinx.coroutines.runBlocking
 
 class MainActivity : BaseActivity<ActivityMainBinding>(){
 
+
+
     fun setTitle(title : String){
         binding.tvTitle.text = title
     }
