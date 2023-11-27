@@ -1,23 +1,21 @@
 package com.knasirayaz.recorder.ui.record_podcast
 
 import android.Manifest
-import android.content.pm.ActivityInfo
-import android.media.MediaPlayer
 import android.media.MediaRecorder
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.Environment
+import android.util.Log
 import android.view.View
-import android.widget.Toast
-import androidx.core.net.toUri
 import androidx.navigation.fragment.findNavController
 import com.filepickersample.enumeration.FileType
 import com.filepickersample.utils.FileUtil
+import com.knasirayaz.recorder.BuildConfig
 import com.knasirayaz.recorder.R
 import com.knasirayaz.recorder.base.BaseFragment
 import com.knasirayaz.recorder.databinding.FragmentRecordpodcastBinding
+import com.knasirayaz.recorder.utils.BillingUtility
 import com.knasirayaz.recorder.utils.DateTimeHelpers
+import com.knasirayaz.recorder.utils.InAppPurchaseItems
 import com.knasirayaz.recorder.utils.hide
 import com.knasirayaz.recorder.utils.show
 import com.knasirayaz.recorder.utils.snackbar
@@ -25,7 +23,6 @@ import kotlinx.coroutines.*
 import pub.devrel.easypermissions.EasyPermissions
 import pub.devrel.easypermissions.PermissionRequest
 import java.io.File
-import java.io.IOException
 
 
 enum class RecordingStates {
@@ -60,6 +57,9 @@ class RecordPodcastFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+
         setUiConfiguration(RecordingStates.IDLE)
         initializeMediaRecorder()
         listeners()
@@ -104,6 +104,7 @@ class RecordPodcastFragment :
             }
         }
     }
+
 
     private fun resetEverything() {
         mMediaRecorder?.reset()
@@ -215,16 +216,18 @@ class RecordPodcastFragment :
 
 
     private fun isPermissionGranted(): Boolean {
+        var isNotRequired = false
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            // only for gingerbread and newer versions
+            isNotRequired = true
+        }
+
         val isPermission =
-            EasyPermissions.hasPermissions(requireContext(), Manifest.permission.RECORD_AUDIO) &&
-                    EasyPermissions.hasPermissions(
-                        requireContext(),
-                        Manifest.permission.READ_EXTERNAL_STORAGE
-                    ) &&
-                    EasyPermissions.hasPermissions(
-                        requireContext(),
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE
-                    )
+            EasyPermissions.hasPermissions(
+                requireContext(),
+                Manifest.permission.RECORD_AUDIO) &&
+                    ((EasyPermissions.hasPermissions(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE) && EasyPermissions.hasPermissions(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE)) || isNotRequired)
 
         return if (isPermission) {
             true

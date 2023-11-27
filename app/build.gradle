@@ -10,22 +10,40 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('/Users/nasir/Documents/GitProjects/Recorder-AndroidTask/store/store')
+            storePassword 'android'
+            keyAlias 'key0'
+            keyPassword 'android'
+        }
+
+        release {
+            storeFile file('/Users/nasir/Documents/GitProjects/Recorder-AndroidTask/store/store')
+            storePassword 'android'
+            keyAlias 'key0'
+            keyPassword 'android'
+        }
+    }
     compileSdk 33
 
     defaultConfig {
         applicationId "com.knasirayaz.recorder"
         minSdk 24
         targetSdk 33
-        versionCode 1
+        versionCode 3
         versionName "1.0"
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        signingConfig signingConfigs.release
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+            debuggable false
         }
     }
     compileOptions {
@@ -53,6 +71,9 @@ dependencies {
 
     //Kotlin coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4"
+
+    implementation("com.android.billingclient:billing-ktx:6.0.0")
+
 
     //Picasso
     implementation "com.squareup.picasso:picasso:2.71828"

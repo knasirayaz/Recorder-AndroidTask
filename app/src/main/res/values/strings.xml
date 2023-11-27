@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Recorder-AndroidTask</string>
+    <string name="app_name">Simple Recorder</string>
     <string name="success">Success</string>
     <string name="create_podcast">Create Podcast</string>
     <string name="start_recording">Start Recording</string>
